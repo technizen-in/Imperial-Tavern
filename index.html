@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imperial Tavern | Innisfail</title>
+
+<style>
+:root{
+    --black:#11100f;
+    --charcoal:#1c1b19;
+    --gold:#c79a4a;
+    --gold-light:#e4c47b;
+    --cream:#f4efe5;
+    --white:#fffdf8;
+    --muted:#b9b0a3;
+    --red:#7d2925;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--cream);
+    color:var(--black);
+    line-height:1.6;
+}
+
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,92%);margin:auto}
+
+/* NAV */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(17,16,15,.97);
+    border-bottom:1px solid rgba(199,154,74,.25);
+}
+
+.nav-inner{
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    color:white;
+}
+
+.brand-icon{
+    width:45px;
+    height:45px;
+    border:1px solid var(--gold);
+    display:grid;
+    place-items:center;
+    font-size:21px;
+    color:var(--gold-light);
+}
+
+.brand strong{
+    display:block;
+    font-family:Georgia,serif;
+    letter-spacing:1px;
+    font-size:20px;
+}
+
+.brand span{
+    display:block;
+    color:var(--gold);
+    font-size:9px;
+    letter-spacing:3px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    color:#eee;
+}
+
+.nav-links a{
+    font-size:13px;
+}
+
+.nav-links a:hover{color:var(--gold-light)}
+
+.nav-call{
+    border:1px solid var(--gold);
+    padding:10px 17px;
+}
+
+/* HERO */
+.hero{
+    min-height:760px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+      linear-gradient(90deg,rgba(10,9,8,.95) 0%,rgba(10,9,8,.72) 48%,rgba(10,9,8,.25) 100%),
+      url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1900&q=85")
+      center/cover;
+    color:white;
+}
+
+.hero-content{
+    max-width:760px;
+    padding:100px 0;
+}
+
+.eyebrow{
+    color:var(--gold-light);
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:clamp(54px,7vw,92px);
+    line-height:.95;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--gold-light);
+}
+
+.hero p{
+    max-width:620px;
+    color:#ddd3c8;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:13px;
+}
+
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:14px 23px;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:.4px;
+    transition:.25s;
+}
+
+.btn-gold{
+    background:var(--gold);
+    color:#17120d;
+}
+
+.btn-gold:hover{
+    background:var(--gold-light);
+    transform:translateY(-2px);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.65);
+    color:white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:var(--black);
+}
+
+.hero-stats{
+    display:flex;
+    flex-wrap:wrap;
+    gap:35px;
+    margin-top:55px;
+}
+
+.hero-stat strong{
+    display:block;
+    color:white;
+    font-family:Georgia,serif;
+    font-size:17px;
+}
+
+.hero-stat span{
+    color:#aaa098;
+    font-size:12px;
+}
+
+/* INTRO */
+.intro{
+    padding:100px 0;
+    background:var(--white);
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.label{
+    color:#9c722d;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+h2{
+    font-family:Georgia,serif;
+    font-size:clamp(36px,4vw,55px);
+    line-height:1.08;
+    margin-bottom:20px;
+}
+
+.intro p{
+    color:#6f675f;
+    margin-bottom:18px;
+}
+
+.image-frame{
+    position:relative;
+}
+
+.image-frame img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+}
+
+.image-note{
+    position:absolute;
+    bottom:22px;
+    left:22px;
+    right:22px;
+    padding:20px;
+    background:rgba(17,16,15,.91);
+    color:white;
+    border-left:3px solid var(--gold);
+}
+
+.image-note small{
+    color:#c7bdb1;
+}
+
+/* MENU */
+.menu{
+    background:#191715;
+    color:white;
+    padding:100px 0;
+}
+
+.heading{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 55px;
+}
+
+.heading p{
+    color:#aaa097;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.menu-card{
+    background:#24221f;
+    padding:34px;
+    border:1px solid rgba(199,154,74,.17);
+    transition:.25s;
+}
+
+.menu-card:hover{
+    border-color:rgba(199,154,74,.65);
+    transform:translateY(-5px);
+}
+
+.menu-number{
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.menu-card h3{
+    font-family:Georgia,serif;
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.menu-card p{
+    color:#a9a097;
+    font-size:14px;
+}
+
+/* EXPERIENCE */
+.experience{
+    padding:100px 0;
+    background:#eee5d8;
+}
+
+.exp-grid{
+    display:grid;
+    grid-template-columns:.95fr 1.05fr;
+    gap:60px;
+    align-items:center;
+}
+
+.exp-image img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+}
+
+.exp-copy p{
+    color:#6e655d;
+    margin-bottom:18px;
+}
+
+.feature-list{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.feature{
+    background:white;
+    padding:19px;
+    border-left:3px solid var(--gold);
+}
+
+.feature strong{
+    display:block;
+    font-family:Georgia,serif;
+    margin-bottom:4px;
+}
+
+.feature span{
+    font-size:12px;
+    color:#7a7169;
+}
+
+/* RIVER / LOCAL */
+.local{
+    padding:100px 0;
+    background:var(--white);
+}
+
+.local-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.local-card{
+    min-height:350px;
+    position:relative;
+    overflow:hidden;
+}
+
+.local-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.local-card:hover img{transform:scale(1.07)}
+
+.local-card:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent 30%,rgba(10,9,8,.92));
+}
+
+.local-content{
+    position:absolute;
+    z-index:2;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:25px;
+    color:white;
+}
+
+.local-content h3{
+    font-family:Georgia,serif;
+    font-size:25px;
+}
+
+.local-content p{
+    color:#d7cec4;
+    font-size:13px;
+}
+
+/* CTA */
+.cta{
+    padding:95px 0;
+    text-align:center;
+    color:white;
+    background:
+      linear-gradient(rgba(35,24,17,.91),rgba(35,24,17,.91)),
+      url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1900&q=85")
+      center/cover;
+}
+
+.cta h2{
+    max-width:780px;
+    margin:0 auto 18px;
+}
+
+.cta p{
+    max-width:650px;
+    margin:0 auto 30px;
+    color:#d4c8bc;
+}
+
+/* CONTACT */
+.contact{
+    padding:100px 0;
+    background:#eee5d8;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:40px;
+}
+
+.contact-box{
+    background:#181614;
+    color:white;
+    padding:42px;
+}
+
+.contact-box h2{
+    font-size:42px;
+}
+
+.contact-item{
+    padding:20px 0;
+    border-bottom:1px solid rgba(255,255,255,.11);
+}
+
+.contact-item small{
+    display:block;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:10px;
+    margin-bottom:5px;
+}
+
+.contact-item span,
+.contact-item a{
+    color:#ded5cb;
+    font-size:14px;
+}
+
+.map iframe{
+    width:100%;
+    height:100%;
+    min-height:480px;
+    border:0;
+}
+
+/* TECHNIZEN */
+.technizen{
+    padding:80px 0;
+    background:white;
+}
+
+.tech-box{
+    padding:55px;
+    text-align:center;
+    background:#f8f2e8;
+    border:1px solid #e5d6bf;
+}
+
+.tech-tag{
+    display:inline-block;
+    background:#171412;
+    color:var(--gold-light);
+    padding:8px 14px;
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:20px;
+}
+
+.tech-box h2{
+    max-width:800px;
+    margin:0 auto 15px;
+}
+
+.tech-box > p{
+    color:#70675e;
+    max-width:700px;
+    margin:0 auto;
+}
+
+.price{
+    margin:20px 0;
+    font-size:25px;
+    font-weight:bold;
+    color:#9a6b25;
+}
+
+.price span{
+    font-size:14px;
+    font-weight:normal;
+    color:#70675e;
+}
+
+.benefits{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:9px;
+    max-width:900px;
+    margin:25px auto 30px;
+}
+
+.benefit{
+    background:white;
+    border:1px solid #e4d9cb;
+    padding:9px 13px;
+    font-size:12px;
+    color:#5e554d;
+}
+
+/* FOOTER */
+footer{
+    background:#11100f;
+    color:#a79d94;
+    padding:50px 0 0;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:40px;
+}
+
+footer h3{
+    color:white;
+    font-family:Georgia,serif;
+    margin-bottom:14px;
+}
+
+footer p{
+    font-size:13px;
+}
+
+footer a{color:#cdb07a}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    padding:25px 0;
+    font-size:12px;
+    color:#827970;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25d366;
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:27px;
+    box-shadow:0 8px 25px rgba(0,0,0,.3);
+    z-index:3000;
+}
+
+/* POPUP */
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    z-index:6000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.popup{
+    width:min(550px,100%);
+    background:#fffaf1;
+    color:#171412;
+    padding:43px;
+    text-align:center;
+    border-top:4px solid var(--gold);
+}
+
+.popup-icon{
+    width:58px;
+    height:58px;
+    border:1px solid var(--gold);
+    margin:0 auto 20px;
+    display:grid;
+    place-items:center;
+    color:#9c722d;
+    font-family:Georgia,serif;
+    font-size:23px;
+}
+
+.popup h2{font-size:31px}
+
+.popup p{
+    color:#6c635b;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.popup strong{color:#9a6b25}
+
+.popup-actions{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+    .nav-links a:not(.nav-call){display:none}
+
+    .intro-grid,
+    .exp-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .menu-grid,
+    .local-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:560px){
+    .hero{min-height:680px}
+
+    .hero h1{font-size:53px}
+
+    .menu-grid,
+    .local-grid,
+    .feature-list,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .intro,
+    .menu,
+    .experience,
+    .local,
+    .contact{
+        padding:70px 0;
+    }
+
+    .tech-box{padding:35px 20px}
+
+    .contact-box{padding:30px}
+
+    .popup{padding:32px 22px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TECHNIZEN POPUP -->
+<div class="popup-overlay" id="techPopup">
+    <div class="popup">
+
+        <div class="popup-icon">T</div>
+
+        <div class="label">Website Concept</div>
+
+        <h2>Sample Website by Technizen Solutions</h2>
+
+        <p>
+            This is a sample website concept created by
+            <strong>Technizen Solutions</strong>.
+        </p>
+
+        <p>
+            All rights reserved to Technizen Solutions.
+            Want a professional website for your business?
+        </p>
+
+        <p>
+            Visit <strong>technizen.com.au</strong> or contact us directly.
+        </p>
+
+        <p>
+            WhatsApp: <strong>+61 3 4236 1236</strong>
+        </p>
+
+        <div class="popup-actions">
+
+            <a
+                href="https://wa.me/61342361236"
+                target="_blank"
+                class="btn btn-gold">
+                CONTACT TECHNIZEN
+            </a>
+
+            <button
+                onclick="closePopup()"
+                class="btn"
+                style="background:#181614;color:white;border:0;cursor:pointer;">
+                CONTINUE TO WEBSITE
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- NAV -->
+<nav>
+    <div class="container nav-inner">
+
+        <a href="#" class="brand">
+
+            <div class="brand-icon">I</div>
+
+            <div>
+                <strong>IMPERIAL TAVERN</strong>
+                <span>INNISFAIL · QUEENSLAND</span>
+            </div>
+
+        </a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#menu">Food & Drinks</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+
+            <a
+                href="https://wa.me/61342361236"
+                target="_blank"
+                class="nav-call">
+                ENQUIRE
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                Bar · Restaurant · Innisfail
+            </div>
+
+            <h1>
+                Good food.<br>
+                Great drinks.<br>
+                <span>Local atmosphere.</span>
+            </h1>
+
+            <p>
+                Welcome to Imperial Tavern — a relaxed place in
+                Innisfail to enjoy a meal, catch up with friends
+                and settle in for a drink.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#contact" class="btn btn-gold">
+                    FIND US
+                </a>
+
+                <a
+                    href="tel:+61740238500"
+                    class="btn btn-outline">
+                    CALL 07 4023 8500
+                </a>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div class="hero-stat">
+                    <strong>42 Fitzgerald Esplanade</strong>
+                    <span>Innisfail QLD</span>
+                </div>
+
+                <div class="hero-stat">
+                    <strong>Bar & Restaurant</strong>
+                    <span>Food · Drinks · Good Times</span>
+                </div>
+
+                <div class="hero-stat">
+                    <strong>Local Favourite</strong>
+                    <span>Meet · Eat · Relax</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="intro" id="about">
+
+    <div class="container intro-grid">
+
+        <div>
+
+            <div class="label">Welcome to Imperial</div>
+
+            <h2>A place to eat, drink and unwind.</h2>
+
+            <p>
+                Imperial Tavern brings together the relaxed atmosphere
+                of a local tavern with the enjoyment of a good meal
+                and a well-earned drink.
+            </p>
+
+            <p>
+                Whether you're meeting friends, enjoying a casual meal,
+                stopping in after a day around the Cassowary Coast or
+                simply looking for somewhere comfortable to unwind,
+                Imperial Tavern is a natural local stop.
+            </p>
+
+            <a href="#contact" class="btn btn-gold">
+                VISIT IMPERIAL TAVERN
+            </a>
+
+        </div>
+
+        <div class="image-frame">
+
+            <img
+                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=85"
+                alt="Restaurant and bar interior">
+
+            <div class="image-note">
+                <strong>A relaxed local atmosphere</strong><br>
+                <small>
+                    Food, drinks and good company in Innisfail.
+                </small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOD & DRINKS -->
+<section class="menu" id="menu">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <div class="label" style="color:#d9ad60;">
+                Food & Drinks
+            </div>
+
+            <h2>
+                Something for every kind of visit.
+            </h2>
+
+            <p>
+                From casual meals to drinks with friends,
+                enjoy a straightforward tavern experience
+                in the heart of Innisfail.
+            </p>
+
+        </div>
+
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <div class="menu-number">01 · FOOD</div>
+                <h3>Pub Favourites</h3>
+                <p>
+                    Familiar, satisfying meals made for a relaxed
+                    lunch, dinner or casual catch-up.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-number">02 · DRINKS</div>
+                <h3>Bar Selection</h3>
+                <p>
+                    Unwind with a drink and enjoy the laid-back
+                    atmosphere of a traditional local tavern.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-number">03 · CASUAL DINING</div>
+                <h3>Easy Evenings</h3>
+                <p>
+                    A comfortable setting for dinner, conversation
+                    and an evening out.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-number">04 · CATCH UPS</div>
+                <h3>Meet Friends</h3>
+                <p>
+                    Bring your friends together for food, drinks
+                    and a relaxed local atmosphere.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-number">05 · LOCAL</div>
+                <h3>Innisfail Spirit</h3>
+                <p>
+                    A familiar place where locals and visitors
+                    can enjoy time together.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-number">06 · GOOD TIMES</div>
+                <h3>Stay Awhile</h3>
+                <p>
+                    Come in for a quick meal or settle in and
+                    make an evening of it.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+
+    <div class="container exp-grid">
+
+        <div class="exp-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=85"
+                alt="Tavern bar atmosphere">
+
+        </div>
+
+        <div class="exp-copy">
+
+            <div class="label">The Imperial Experience</div>
+
+            <h2>Your local place to slow down.</h2>
+
+            <p>
+                There's something special about a good local tavern.
+                It's somewhere you can walk in, take a seat and
+                enjoy a few hours without rushing.
+            </p>
+
+            <p>
+                Imperial Tavern is designed around that simple idea:
+                good company, enjoyable food and a comfortable
+                atmosphere.
+            </p>
+
+            <div class="feature-list">
+
+                <div class="feature">
+                    <strong>🍽 Casual Dining</strong>
+                    <span>Enjoy a relaxed meal without the fuss.</span>
+                </div>
+
+                <div class="feature">
+                    <strong>🍺 Tavern Atmosphere</strong>
+                    <span>A familiar local place to unwind.</span>
+                </div>
+
+                <div class="feature">
+                    <strong>👥 Catch Up</strong>
+                    <span>Meet friends and enjoy good conversation.</span>
+                </div>
+
+                <div class="feature">
+                    <strong>📍 Local Location</strong>
+                    <span>Conveniently located on Fitzgerald Esplanade.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOCAL AREA -->
+<section class="local">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <div class="label">Cassowary Coast</div>
+
+            <h2>Make a day of it.</h2>
+
+            <p>
+                Enjoy the local atmosphere of Innisfail and make
+                Imperial Tavern part of your next stop around town.
+            </p>
+
+        </div>
+
+        <div class="local-grid">
+
+            <div class="local-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=85"
+                    alt="Queensland landscape">
+
+                <div class="local-content">
+                    <h3>Explore Queensland</h3>
+                    <p>
+                        Discover the tropical beauty surrounding Innisfail.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="local-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=85"
+                    alt="Restaurant dining">
+
+                <div class="local-content">
+                    <h3>Food & Conversation</h3>
+                    <p>
+                        Finish the day with a relaxed meal and good company.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="local-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1000&q=85"
+                    alt="Evening atmosphere">
+
+                <div class="local-content">
+                    <h3>Enjoy the Evening</h3>
+                    <p>
+                        Settle in for drinks, dinner and a relaxed night out.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta">
+
+    <div class="container">
+
+        <div class="label" style="color:#dfb66b;">
+            Your Next Local Night Out
+        </div>
+
+        <h2>
+            Good food, good drinks and good company.
+        </h2>
+
+        <p>
+            Make Imperial Tavern your next stop in Innisfail.
+        </p>
+
+        <div class="buttons" style="justify-content:center;">
+
+            <a href="#contact" class="btn btn-gold">
+                GET DIRECTIONS
+            </a>
+
+            <a
+                href="tel:+61740238500"
+                class="btn btn-outline">
+                CALL THE TAVERN
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="container contact-grid">
+
+        <div class="contact-box">
+
+            <div class="label">Visit Us</div>
+
+            <h2>Come in and stay awhile.</h2>
+
+            <div class="contact-item">
+
+                <small>Address</small>
+
+                <span>
+                    42 Fitzgerald Esplanade,<br>
+                    Innisfail QLD 4860,<br>
+                    Australia
+                </span>
+
+            </div>
+
+            <div class="contact-item">
+
+                <small>Phone</small>
+
+                <a href="tel:+61740238500">
+                    (07) 4023 8500
+                </a>
+
+            </div>
+
+            <div class="contact-item">
+
+                <small>Email</small>
+
+                <a href="mailto:office@imperialtavern.com.au">
+                    office@imperialtavern.com.au
+                </a>
+
+            </div>
+
+            <div class="contact-item">
+
+                <small>Location</small>
+
+                <span>
+                    Fitzgerald Esplanade · Innisfail · Queensland
+                </span>
+
+            </div>
+
+            <div style="margin-top:30px;">
+
+                <a
+                    href="https://www.google.com/maps/place/Imperial+Tavern/@-17.5259433,146.0284167,16z"
+                    target="_blank"
+                    class="btn btn-gold">
+                    OPEN IN GOOGLE MAPS
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="map">
+
+            <iframe
+                src="https://www.google.com/maps?q=Imperial%20Tavern%2C%2042%20Fitzgerald%20Esplanade%2C%20Innisfail%20QLD%204860&output=embed"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TECHNIZEN PROMO -->
+<section class="technizen">
+
+    <div class="container">
+
+        <div class="tech-box">
+
+            <div class="tech-tag">
+                WEBSITE BY TECHNIZEN SOLUTIONS
+            </div>
+
+            <div class="label">
+                LOVE THIS WEBSITE?
+            </div>
+
+            <h2>
+                We Can Build A Similar Or Even Better Website For You.
+            </h2>
+
+            <p>
+                Give your business a professional online presence
+                with your own custom website and domain like
+                <strong>yourbusiness.com.au</strong>.
+            </p>
+
+            <div class="price">
+                Single page site starting A$299 for first year
+                <span> · Renewal 60% OFF</span>
+            </div>
+
+            <div class="benefits">
+
+                <div class="benefit">✓ Own Domain</div>
+                <div class="benefit">✓ Brand Protection</div>
+                <div class="benefit">✓ Brand Awareness</div>
+                <div class="benefit">✓ 24×7 Availability</div>
+                <div class="benefit">✓ Booking & Enquiries</div>
+                <div class="benefit">✓ Organic Visibility</div>
+                <div class="benefit">✓ Professional Credibility</div>
+                <div class="benefit">✓ Mobile Friendly</div>
+                <div class="benefit">✓ More Enquiries</div>
+
+            </div>
+
+            <div class="buttons" style="justify-content:center;">
+
+                <a
+                    href="https://wa.me/61342361236"
+                    target="_blank"
+                    class="btn btn-gold">
+                    BUILD MY WEBSITE
+                </a>
+
+                <a
+                    href="https://technizen.com.au/pay299"
+                    target="_blank"
+                    class="btn"
+                    style="background:#181614;color:white;">
+                    Get this template
+                </a>
+
+                <a
+                    href="https://technizen.com.au/promo"
+                    target="_blank"
+                    class="btn"
+                    style="border:1px solid #181614;color:#181614;">
+                    Browse other templates
+                </a>
+
+            </div>
+
+            <p style="margin-top:25px;font-size:12px;color:#887d73;">
+                Custom design · Custom domain · Business-focused website
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>Imperial Tavern</h3>
+
+                <p>
+                    A relaxed bar and restaurant experience
+                    in Innisfail, Queensland.
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>Visit</h3>
+
+                <p>
+                    42 Fitzgerald Esplanade<br>
+                    Innisfail QLD 4860<br>
+                    Australia
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>Contact</h3>
+
+                <p>
+                    <a href="tel:+61740238500">
+                        (07) 4023 8500
+                    </a><br>
+
+                    <a href="mailto:office@imperialtavern.com.au">
+                        office@imperialtavern.com.au
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom" id="7lbpme">
+
+            This sample website was developed by
+            <a href="https://technizen.in/">Technizen Solutions</a>.
+
+            <br><br>
+
+            Want a website like this for your business?
+            Contact Technizen Solutions.
+
+            <br><br>
+
+            © 2026 Technizen Solutions · Sample Website Concept
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- TECHNIZEN WHATSAPP -->
+<a
+    href="https://wa.me/61342361236"
+    target="_blank"
+    class="whatsapp"
+    aria-label="Contact Technizen Solutions on WhatsApp">
+    ☎
+</a>
+
+
+<script>
+function closePopup(){
+    document.getElementById("techPopup").style.display="none";
+}
+
+document.getElementById("techPopup").addEventListener("click",function(e){
+    if(e.target === this){
+        closePopup();
+    }
+});
+</script>
+
+</body>
+</html>
